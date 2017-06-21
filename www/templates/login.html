@@ -1,0 +1,33 @@
+<ion-view view-title="AllergiX">
+  <ion-content>
+    <ion-list>
+
+
+<div class="card">
+  <div class="item item-divider">
+    Login
+  </div>
+  <div class="item item-text-wrap">
+<div class="list">
+  <label class="item item-input item-floating-label">
+    <span class="input-label">Email</span>
+    <input type="email" placeholder="Email" ng-model="user.email">
+  </label>
+  <label class="item item-input item-floating-label">
+    <span class="input-label">Password</span>
+    <input type="password" placeholder="Password" ng-model="user.password">
+  </label>
+</div>  
+</div>
+  <div class="item item-divider">
+<button class="button button-full button-positive" ng-click="login(user); user = null">
+  Login
+</button>
+<button class="button button-full button-assertive" ng-click="register(user); user = null">
+  Register
+</button>
+  </div>
+</div>
+    </ion-list>
+  </ion-content>
+</ion-view>

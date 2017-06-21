@@ -1,0 +1,110 @@
+/*
+To customize the look and feel of Ionic, you can override the variables
+in ionic's _variables.scss file.
+
+For example, you might change some of the default colors:
+
+$light:                           #fff !default;
+$stable:                          #f8f8f8 !default;
+$positive:                        #387ef5 !default;
+$calm:                            #11c1f3 !default;
+$balanced:                        #33cd5f !default;
+$energized:                       #ffc900 !default;
+$assertive:                       #ef473a !default;
+$royal:                           #886aea !default;
+$dark:                            #444 !default;
+*/
+
+
+
+// The path for our ionicons font files, relative to the built CSS in www/css
+$ionicons-font-path: "../lib/ionic/fonts" !default;
+
+// Include all of Ionic
+@import "www/lib/ionic/scss/ionic";
+
+
+
+// AllergiX Custom theming based on Allergista Daily Tracker
+
+
+$allergix-torquise : rgba(55, 195, 174, 0.37)!default;
+$allergix-background: rgba(55, 195, 174, 0.06)!default;
+$allergix-red: #AF1C1C!default;
+$allergix-active-icon: rgb(55, 195, 174)!default;
+
+//override defaults
+.header-item {
+  color:#212121!important;
+}
+ion-content {
+  background-color: $allergix-background;
+}
+.bar-allergix {
+  background-color: $allergix-torquise;
+}
+.button-allergix-green {
+  background-color: $allergix-active-icon;
+}
+.button-allergix-red {
+  color:#FFFFFF;
+  background-color: $allergix-red;
+}
+.button-allergix-green {
+  color:#FFFFFF;
+  background-color: $allergix-active-icon;
+}
+
+.daily-tracker-square {
+  text-align: center;
+  height: 44vw;
+  background-color: rgba(55, 195, 174, 0.2);
+  line-height: 39vw;
+  font-size: 26vw;
+  width: 100%;
+  position: relative;
+  color: #37c3ae;
+
+  .square-text {
+    font-size: 4vw;
+    position: relative;
+    top: -20vw;
+    /* left: 30%; */
+    text-align: center; }
+}
+.tab-nav {
+  &.tabs {
+    background-color: rgba(55, 195, 174, 0.2);
+  }
+}
+//Scale-In Animation
+.scale-in {
+  transform: scale(0.9);
+  opacity: 0;
+}
+.scale-in.ng-enter,
+.scale-in > .ng-enter {
+  transition: all cubic-bezier(.1, .7, .1, 1) 400ms;
+}
+
+.scale-in.ng-enter-active,
+.scale-in > .ng-enter-active {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.scale-in.ng-leave,
+.scale-in > .ng-leave {
+  transition: all ease-in-out 250ms;
+}
+
+.card, .button, .button-bar {
+  border-radius: 0;
+}
+
+.pull-right {
+  float: right;
+}
+.pull-left{
+  float: left;
+}

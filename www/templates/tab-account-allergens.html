@@ -1,0 +1,40 @@
+<ion-view view-title="Allergens">
+  <ion-content>
+  <div class="card">
+  <div class="item item-text-wrap">
+<div class="bar bar-header item-input-inset">
+  <label class="item-input-wrapper">
+    <i class="icon ion-ios-search placeholder-icon"></i>
+    <input type="text" placeholder="Allergen"  ng-model="newAllergen">
+  </label>
+  <button class="button button-clear" ng-click="addAllergen(newAllergen);">
+    Add
+  </button>
+
+</div>
+
+<!-- <ul class="list">
+    <li class="item" ng-repeat="allergy in user.preferences.allergens">
+        {{allergy }}    </li>
+</ul>
+ -->
+
+<ion-list
+          show-delete="shouldShowDelete"
+          show-reorder="shouldShowReorder"
+          can-swipe="listCanSwipe">
+  <ion-item ng-repeat="(key, allergy) in user.preferences.allergens"
+            class="">
+
+   {{allergy}}
+    <ion-option-button class="button-assertive"
+                       ng-click="removeAllergen(key)">
+      Delete
+    </ion-option-button>
+  </ion-item>
+</ion-list>
+  </div>
+</div>
+  </ion-content>
+
+</ion-view>

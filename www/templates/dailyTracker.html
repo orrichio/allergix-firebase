@@ -1,0 +1,8 @@
+<!--<button class=" button icon button-full""  ng-class="{'button-allergix-red' : trackerStatus == false, 'button-allergix-green' : trackerStatus == true}" >Daily Tracker</button>-->
+<!-- <div ng-if="trackerStatus == true">already logged</div> -->
+<div class="ion-pie-graph daily-tracker-square" ng-click="openModal()" ng-class="{'button-allergix-red' : trackerStatus == false, 'button-allergix-green' : trackerStatus == true}">
+<div class="square-text" >
+  <span ng-if="!trackerStatus">Incomplete</span>
+  <span ng-if="trackerStatus">Complete</span>
+</div>
+</div>

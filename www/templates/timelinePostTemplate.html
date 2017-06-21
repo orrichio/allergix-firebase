@@ -1,0 +1,23 @@
+<div class="list card" >
+
+  <!--<div class="item item-avatar">-->
+  <!--<h2>{{post.title}}</h2>-->
+  <!--<h3>{{post.createdBy}}</h3>-->
+  <!--<p>{{post.created | date:'mediumDate'}}</p>-->
+  <!--</div>-->
+  <div class="row">
+    <div class="col">
+      <div ng-click="upvote()"><a href="#" class="subdued">{{post.upvoteCount}} Upvotes</a></div>
+      <div ng-click="downvote()"><a href="#" class="subdued"></i>{{post.downvoteCount}} Downvotes</a></div>
+
+      <div><a href="#" class="subdued">{{post.comments.length}} Comments</a></div>
+    </div>
+    <div class="col">
+      <h4>{{post.title}}</h4>
+
+    </div>
+
+  </div>
+  <div class="padding">{{post.created | date:'medium'}}</div>
+
+</div>

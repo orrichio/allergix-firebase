@@ -1,0 +1,66 @@
+<ion-modal-view>
+    <ion-header-bar>
+<!--       <h1 class="title">{{today | date: 'EEEE, MMM dd'}}</h1><button ng-click="closeModal()">Close</button>
+        <button class="button  button-positive " ng-click="addTracker();">Commit Log</button> -->
+  <button class="button icon ion-close" ng-click="closeModal(1)"></button>
+  <h1 class="title">{{today | date: 'longDate'}}</h1>
+
+    </ion-header-bar>
+    <ion-content>
+      <ion-slide-box on-slide-changed="updateIndex($index)" show-pager="false">
+        <ion-slide ng-repeat="trackerSlide in trackerItems.trackerSlides track by $index" >
+          <h6 class="title text-center">{{trackerSlide.title}}</h6>
+          <div ng-if="trackerSlide.input == true">
+            <div class="card">
+              <div class="list list-inset item-icon-right">
+                <label class="item item-input ">
+                  <input type="text" placeholder="{{trackerSlide.title}}" ng-model="item">
+
+                </label>
+                <i class="icon ion-ios-plus-outline" ng-click="add(item); item = ''"></i>
+
+              </div>
+            </div>
+
+          </div>
+          <div class="list">
+            <a class="item item-icon-right" href="#"  ng-repeat="(key, item)  in trackerSlide.data.items ">
+              {{item}}
+              <i class="icon ion-ios-close-outline" ng-click="removeItem(key, item)"></i>
+            </a>
+          </div>
+          <!-- for other factors selecton -->
+
+          <ion-list ng-if="trackerSlide.input == false">
+            <ion-checkbox ng-model="value" ng-repeat="(key, value) in trackerSlide.data" ng-change="otherFactorsAdd(key, value)">{{key}}</ion-checkbox>
+          </ion-list>
+
+          <div ng-repeat="item in trackerSlide.data track by $index" ng-if="trackerSlide.input === 'rate'">
+            <div class="item range range-positive" ng-if="key != 'others'" >
+              <div class=" col col-25">
+                <label >{{item.title}}</label>
+              </div>
+              <input ng-if="key != 'others'" type="range" name="volume" min="0" max="5" value="0" ng-model="item.value" ng-change="symptomsAdd($index,item.value)">
+            </div>
+            <div ng-if="key == 'others'" ng-repeat="(key,value) in value track by $index">
+              <input ng-model="value" ng-change="symptomsAdd(key,value)">
+            </div>
+          </div>
+          <div class="list row">
+
+            <img class="full-image" ng-src="{{item.image}}" ng-repeat="item in trackerSlide.images">
+          </div>
+        </ion-slide>
+
+      </ion-slide-box>
+
+
+    </ion-content>
+  <ion-footer-bar class="row" ng-if="currentTrackerSlide == trackerItems.trackerSlides.length - 1">
+    <div class="button-bar">
+      <button class="button  button-assertive " ng-click="confirmTrackerSubmit();">Commit Log</button>
+
+    </div>
+  </ion-footer-bar>
+
+  </ion-modal-view>
